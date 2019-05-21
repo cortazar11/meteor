@@ -1,6 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {fetchMeteors} from '../actions';
+import moment from 'moment';
 
 class MeteorList extends React.Component{
 
@@ -26,7 +27,7 @@ class MeteorList extends React.Component{
             
             const meteorites=arr.map((meteorite)=>{
                 
-               
+                    const year=moment(meteorite.year).format('YYYY')
                     return (
                         <tbody>
                                 <tr key={parseInt(meteorite.id)}>
@@ -36,7 +37,7 @@ class MeteorList extends React.Component{
                                     <td>{meteorite.recclass}</td>
                                     <td>{meteorite.mass}</td>
                                     <td>{meteorite.fall}</td>
-                                    <td>{meteorite.year}</td>
+                                    <td>{year}</td>
                                     <td>{meteorite.reclat}</td>
                                     <td>{meteorite.reclong}</td>
                                 
