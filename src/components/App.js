@@ -7,6 +7,7 @@ import Form from './Form';
 const App=()=>{
     return (
         <div className="ui container">
+            <div style={{textAlign:'center'}}><h1>Meteorite Explorer</h1></div>
             <Form />
             <MeteorList />
         </div>

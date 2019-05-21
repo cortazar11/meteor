@@ -7,29 +7,48 @@ class MeteorList extends React.Component{
     componentDidMount(){
         this.props.fetchMeteors()
     }
+    
 
     renderList(){
             const term= this.props.term
-            console.log(term)
-            const meteorites=this.props.meteors.map((meteorite)=>{
+            const meteoriteFiltered= this.props.meteors.filter((meteorite)=>{
+                    return meteorite.name===term
+                    
+                    
+            })
+            
+            let arr=[]
+            if(term){
+                arr=meteoriteFiltered
+            } else {
+                arr= this.props.meteors
+            }
+            
+            const meteorites=arr.map((meteorite)=>{
+                
+               
+                    return (
+                        <tbody>
+                                <tr key={parseInt(meteorite.id)}>
+                                    <td>{meteorite.name}</td>
+                                    <td>{meteorite.id}</td>
+                                    <td>{meteorite.nametype}</td>
+                                    <td>{meteorite.recclass}</td>
+                                    <td>{meteorite.mass}</td>
+                                    <td>{meteorite.fall}</td>
+                                    <td>{meteorite.year}</td>
+                                    <td>{meteorite.reclat}</td>
+                                    <td>{meteorite.reclong}</td>
+                                
+                                </tr>
+                        </tbody>
+                    )
+
                 
                 
-                return (
-                    <tbody>
-                            <tr key={parseInt(meteorite.id)}>
-                                <td>{meteorite.name}</td>
-                                <td>{meteorite.id}</td>
-                                <td>{meteorite.nametype}</td>
-                                <td>{meteorite.recclass}</td>
-                                <td>{meteorite.mass}</td>
-                                <td>{meteorite.fall}</td>
-                                <td>{meteorite.year}</td>
-                            
-                            </tr>
-                    </tbody>
-                )
             })
 
+            
             return (
                 <table className="ui celled table">
                     <thead>

@@ -29,8 +29,8 @@ class Form extends React.Component {
 
         render(){
                 return (
-                    <div>
-                        <form onSubmit={this.onSubmit}>
+                    <div class="ui segment">
+                        <form onSubmit={this.onSubmit} class="ui action input" style={{marginLeft: '40%'}}>
                             <input
                             type="text"
                             name="search"
