@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "ecb362e8c07670d71a2e299c68332bac",
+    "revision": "36fd9761a6855545dbbfacfb06b591b7",
     "url": "/meteor/index.html"
   },
   {
@@ -8,8 +8,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/meteor/static/js/2.730dc6c3.chunk.js"
   },
   {
-    "revision": "6435a27ddf9d1819c4ba",
-    "url": "/meteor/static/js/main.69fdd740.chunk.js"
+    "revision": "0e2543251cffc5259e60",
+    "url": "/meteor/static/js/main.dc5cec0f.chunk.js"
   },
   {
     "revision": "1bd1d9e42a990a3a361f",
