@@ -1,4 +1,5 @@
 import React from 'react';
+import MeteorList from './MeteorList';
 import { connect } from 'react-redux';
 import {fetchTerm} from '../actions';
 
@@ -12,7 +13,7 @@ class Form extends React.Component {
     
         this.onChange = this.onChange.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
-        
+        this.onFocus = this.onFocus.bind(this);
       }
 
       
@@ -42,11 +43,24 @@ class Form extends React.Component {
 
         onSubmit(e){
             e.preventDefault();
-            const meteor=this.changeCase(this.state.term)
-            //this.props.fetchTerm(this.state.term)
-            this.props.fetchTerm(meteor)
-            
+            if(this.state.term){
+                const meteor=this.changeCase(this.state.term)
+                this.props.fetchTerm(meteor)
+            }
         }
+
+        onFocus(e){
+            e.preventDefault()
+            if(this.state.term){
+                this.setState({
+                    term: ''
+                })
+                
+            }
+            
+            
+            
+        }   
 
         render(){
                 return (
@@ -56,6 +70,7 @@ class Form extends React.Component {
                             type="text"
                             name="search"
                             onChange={this.onChange}
+                            onFocus={this.onFocus}
                             value={this.state.term}
                             />
                     
@@ -68,5 +83,6 @@ class Form extends React.Component {
 
 export default connect(null, {
     fetchTerm
+    
 })(Form);
 
