@@ -56,6 +56,7 @@ class Form extends React.Component {
                     term: ''
                 })
                 
+                window.location.reload()
             }
             
             
