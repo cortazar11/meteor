@@ -1,5 +1,4 @@
 import React from 'react';
-import MeteorList from './MeteorList';
 import { connect } from 'react-redux';
 import {fetchTerm} from '../actions';
 
@@ -35,6 +34,9 @@ class Form extends React.Component {
 
         onChange(e){
             const value=e.target.value
+            if(value===''){
+                window.location.reload()
+            }
             this.setState({
                 term: value
                 
@@ -64,6 +66,8 @@ class Form extends React.Component {
         }   
 
         render(){
+                
+
                 return (
                     <div class="ui segment" id="myForm">
                         <form onSubmit={this.onSubmit} class="ui action input" style={{marginLeft: '40%'}}>
