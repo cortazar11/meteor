@@ -11,12 +11,14 @@ class MeteorList extends React.Component{
     
 
     renderList(){
-            const term= this.props.term
+            const term= this.props.term.trim()
             const meteoriteFiltered= this.props.meteors.filter((meteorite)=>{
-                    return meteorite.name===term
+                    const meteor=meteorite.name
+                    const meteor1=meteor.split("(")[0].trim()
+                    const re=new RegExp("^"+meteor1+"$","i")
+                    return re.test(term)
                     
-                    
-            })
+                })
             
             let arr=[]
             if(term){

@@ -16,20 +16,34 @@ class Form extends React.Component {
       }
 
       
-
+/*
       changeCase(str){
-        const splittedStr=str.split('')
-        const firstChar=splittedStr[0].toUpperCase();
-        let nextChars=''
-        for(let i=1;i<splittedStr.length;i++){
-            nextChars+=splittedStr[i].toLowerCase()
-        }
-        const searchTerm= firstChar+nextChars;
-    
-        return searchTerm
+        const arr=str.split(' ')
+        
+        let meteor=""
+        
+        const arrMapped=arr.map(function(element){
+          const word=element.split('')
+          const firstLetter=word[0].toUpperCase()
+          let nextLetters=[]
+          for(let i=1;i<word.length;i++){
+            nextLetters+=word[i].toLowerCase()
+          }
+          
+          const newWord=firstLetter+nextLetters
+          
+          return newWord
+          
+         })
+
+        
+        meteor=arrMapped.join(" ")
+        return meteor;
+
+        
       }
 
-
+*/
     
 
         onChange(e){
@@ -41,13 +55,14 @@ class Form extends React.Component {
                 term: value
                 
             })
+            
         }
 
         onSubmit(e){
             e.preventDefault();
             if(this.state.term){
-                const meteor=this.changeCase(this.state.term)
-                this.props.fetchTerm(meteor)
+                
+                this.props.fetchTerm(this.state.term)
             }
         }
 
